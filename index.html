@@ -282,6 +282,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .heart{color:var(--hot);font-size:20px;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .quote:hover .heart{transform:scale(1.35)}
 
+.dots{display:none;justify-content:center;align-items:center;gap:8px;margin-top:22px}
+.dots button{width:9px;height:9px;padding:0;border:0;border-radius:99px;background:var(--petal);transition:width .35s cubic-bezier(.2,.8,.2,1),background-color .3s}
+.dots button.on{width:30px;background:var(--hot)}
+
 /* Gallery: two rows, one large tile */
 .fav-head.gal-head{margin-bottom:clamp(32px,4.5vw,56px);align-items:end}
 .gal-head h2{font-size:clamp(34px,4.6vw,60px);margin-top:14px}
@@ -363,7 +367,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .loy-grid{grid-template-columns:1fr}
   .loy-phone{order:-1}
   .loy-phone img{width:min(72%,360px)}
-  .quotes{grid-template-columns:1fr}
+  .quotes{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(var(--gutter)*-1);padding:6px var(--gutter) 10px;scroll-padding-inline:var(--gutter)}
+  .quotes::-webkit-scrollbar{display:none}
+  .quote{flex:0 0 min(56%,420px);scroll-snap-align:start}
+  .quote:hover{transform:none;box-shadow:none}
+  .dots{display:flex}
   .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .shot:nth-child(n+6){display:none}
   .visit-grid{grid-template-columns:1fr}
@@ -379,6 +387,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .nav-links,.nav .btn{display:none}
   .burger{display:flex}
   .hero{display:block;min-height:0}
+  .quote{flex-basis:86%}
+  .btn{display:flex;width:100%;min-height:54px;padding:7px 7px 7px 24px;justify-content:space-between}
+  .btn .arr{width:40px;height:40px}
+  .card .btn{display:inline-flex;width:auto;min-height:0;padding:6px 6px 6px 20px}
+  .card .btn .arr{width:36px;height:36px}
+  .hero .cta,.follow,.menu-foot{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .menu-foot p{margin:0 0 4px}
+  .drawer .btn{align-self:stretch}
   .stks{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
   .s-free b{font-size:10px}
   .hero::after{background:linear-gradient(0deg,rgba(168,19,73,.55) 0%,rgba(168,19,73,.3) 34%,rgba(168,19,73,0) 60%)}
@@ -387,7 +403,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .p-cup{width:44vw;max-width:216px;left:50%;bottom:2%}
   .hero-copy{padding-block:26px 44px}
   .hero h1{font-size:clamp(40px,11.5vw,56px);max-width:none}
-  .hero .cta .btn{flex:1 1 auto;justify-content:center}
   .cards{grid-template-columns:1fr;row-gap:16px}
   .card.has-pop .card-media{aspect-ratio:4/3.1}
   .fav-head .script{margin:.02em 0 0 22%}
@@ -406,10 +421,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .shot:first-child{grid-column:auto;grid-row:auto;aspect-ratio:1}
   .shot:first-child::after,.shot:first-child .cap{opacity:0}
   .shot:nth-child(n+5){display:none}
-  .follow .btn{flex:1 1 100%}
   .contact{grid-template-columns:1fr}
   .foot-top{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .menu-foot .btn{flex:1 1 auto;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -592,7 +605,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="fav-head rev-head rv" data-rv="up">
         <div><h2 class="display" id="rev-h">What Our Customers Say</h2><span class="script" aria-hidden="true">Made with love.</span></div>
       </div>
-      <div class="quotes">
+      <div class="quotes" id="rev-track" tabindex="0" aria-label="Customer reviews">
         <figure class="quote rv" data-rv="up" style="--i:0">
           <blockquote class="quote-panel"><span class="mark" aria-hidden="true">“</span><p>The perfect little coffee stop. The coffee is amazing and everything feels so cozy.</p></blockquote>
           <figcaption><span class="who"><b>Annie S.</b><small>Bloeisel guest</small></span><span class="heart" aria-hidden="true">♥</span></figcaption>
@@ -606,6 +619,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <figcaption><span class="who"><b>Sarah M.</b><small>Bloeisel guest</small></span><span class="heart" aria-hidden="true">♥</span></figcaption>
         </figure>
       </div>
+      <div class="dots" id="rev-dots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -762,6 +776,26 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     go();
     setTimeout(function(){if(v.paused&&v.parentNode)swap()},2500);
   });
+
+  // Reviews slider (tablet and phone): dots follow the swipe, tap a dot to jump, gentle auto-advance
+  (function(){
+    var track=$('#rev-track'),dots=$('#rev-dots');if(!track||!dots)return;
+    var cards=$$('.quote',track),touched=false,timer=null;
+    cards.forEach(function(c,i){var d=document.createElement('button');d.type='button';d.tabIndex=-1;d.addEventListener('click',function(){touched=true;goTo(i)});dots.appendChild(d)});
+    var isSlider=function(){return track.scrollWidth>track.clientWidth+4};
+    var current=function(){var x=track.scrollLeft,best=0,bd=1e9;cards.forEach(function(c,i){var d=Math.abs(c.offsetLeft-track.offsetLeft-x);if(d<bd){bd=d;best=i}});if(x+track.clientWidth>=track.scrollWidth-4)best=cards.length-1;return best};
+    var paint=function(){var n=current();$$('button',dots).forEach(function(d,i){d.classList.toggle('on',i===n)})};
+    var goTo=function(i){track.scrollTo({left:cards[i].offsetLeft-track.offsetLeft,behavior:'smooth'})};
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(paint)},{passive:true});
+    ['pointerdown','touchstart','wheel','keydown'].forEach(function(ev){track.addEventListener(ev,function(){touched=true},{passive:true})});
+    window.addEventListener('resize',paint);paint();
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(en){
+        clearInterval(timer);
+        if(en.isIntersecting)timer=setInterval(function(){if(touched||!isSlider()||document.hidden)return;goTo((current()+1)%cards.length)},4500);
+      })},{threshold:.5}).observe(track);
+    }
+  })();
 
   // Falling petals in the hero
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
