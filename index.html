@@ -7,6 +7,9 @@
 <style>[hidden]{display:none!important}</style>
 <title>Bloeisel Koffie</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preload" href="assets/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/bag.webp" imagesrcset="assets/bag-380.webp 380w, assets/bag.webp 555w" imagesizes="(max-width:720px) 46vw, 27vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/cup.webp" imagesrcset="assets/cup-400.webp 400w, assets/cup.webp 815w" imagesizes="(max-width:720px) 44vw, 26vw" fetchpriority="high">
 <style>
 /* Layout: one long scroll in the Machi pattern. Full-bleed blossom hero with a ghost marquee behind
    floating product cut-outs, then white and blush bands of rounded pastel cards, a full-bleed photo,
@@ -446,7 +449,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="#top" aria-label="Bloeisel Koffie, back to top"><img class="logo" src="assets/logo-deep.webp" alt="Bloeisel" width="1333" height="564"></a>
+    <a href="#top" aria-label="Bloeisel Koffie, back to top"><img class="logo" src="assets/logo-deep.webp" alt="Bloeisel" width="1333" height="564" decoding="async"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#menu">Menu</a>
       <a href="#story">Our story</a>
@@ -476,8 +479,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <main id="top">
   <section class="hero" aria-label="Welcome">
     <div class="products" aria-hidden="true">
-      <img class="p-bag" src="assets/bag.webp" alt="" width="555" height="1226">
-      <img class="p-cup" src="assets/cup.webp" alt="" width="760" height="1135">
+      <img class="p-bag" src="assets/bag.webp" alt="" srcset="assets/bag-380.webp 380w, assets/bag.webp 555w" sizes="(max-width:720px) 46vw, 27vw" width="555" height="1226" fetchpriority="high" decoding="sync">
+      <img class="p-cup" src="assets/cup.webp" alt="" srcset="assets/cup-400.webp 400w, assets/cup.webp 815w" sizes="(max-width:720px) 44vw, 26vw" width="815" height="1217" fetchpriority="high" decoding="sync">
     </div>
     <div class="hero-copy"><div class="wrap">
       <h1 class="display">Good Coffee. Beautiful Moments.</h1>
@@ -498,15 +501,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       </div>
       <div class="cards">
         <a class="card" href="#menu" data-tab="food">
-          <div class="card-media"><img src="assets/croissant.webp" alt="Chocolate croissant and pink sprinkle cookies" loading="lazy"></div>
+          <div class="card-media"><img src="assets/croissant.webp" alt="Chocolate croissant and pink sprinkle cookies" srcset="assets/croissant-520.webp 520w, assets/croissant.webp 1000w" sizes="(max-width:720px) 100vw, (max-width:1024px) 50vw, 32vw" width="1000" height="1000" loading="lazy" decoding="async"></div>
           <div class="card-body"><h3>Eats &amp; Sweet Treats</h3><p class="notes">Sliders / Chicken cups / Cheesecake</p><div class="card-foot"><span class="from">From R30</span><span class="btn btn-hot"><span>See prices</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></div>
         </a>
         <a class="card feat" href="#menu" data-tab="cold">
-          <div class="card-media"><img src="assets/counter.webp" alt="Behind the counter at Bloeisel" loading="lazy"></div>
+          <div class="card-media"><img src="assets/counter.webp" alt="Behind the counter at Bloeisel" srcset="assets/counter-520.webp 520w, assets/counter.webp 1000w" sizes="(max-width:720px) 100vw, (max-width:1024px) 50vw, 32vw" width="1000" height="1000" loading="lazy" decoding="async"></div>
           <div class="card-body"><h3>Freezos &amp; Milkshakes</h3><p class="notes">Coffee Freezo / Bar-One / Litchi</p><div class="card-foot"><span class="from">From R20</span><span class="btn btn-dark"><span>See prices</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></div>
         </a>
         <a class="card has-pop" href="#menu" data-tab="warm">
-          <div class="card-media"><video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" poster="assets/warm-cup.jpg" data-loop="assets/warm-cup-loop.webp" aria-label="A steaming Bloeisel takeaway cup"><source src="assets/warm-cup.mp4" type="video/mp4"></video></div>
+          <div class="card-media"><video muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" poster="assets/warm-cup.jpg" width="834" height="1112" data-src="assets/warm-cup.mp4" data-loop="assets/warm-cup-loop.webp" aria-label="A steaming Bloeisel takeaway cup"></video></div>
           <div class="card-body"><h3>Coffee &amp; Warm Drinks</h3><p class="notes">Cappuccino / Flat white / Hot chocolate</p><div class="card-foot"><span class="from">From R18</span><span class="btn btn-hot"><span>See prices</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></div>
         </a>
       </div>
@@ -530,15 +533,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <a class="btn btn-dark" href="#coffee"><span>Discover our coffee</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
         </div>
         <figure class="portrait rv" data-rv="right">
-          <img class="ph" src="assets/eliska.webp" alt="Eliska O’Reilly in front of Bloeisel Koffie" loading="lazy">
-          <figcaption><div><b>Eliska O’Reilly</b><span>The lady behind Bloeisel Koffie</span></div><img src="assets/sig.webp" alt="Eliska’s signature" width="105" height="59"></figcaption>
+          <img class="ph" src="assets/eliska.webp" alt="Eliska O’Reilly in front of Bloeisel Koffie" srcset="assets/eliska-600.webp 600w, assets/eliska.webp 960w" sizes="(max-width:1024px) 100vw, 40vw" width="960" height="1136" loading="lazy" decoding="async">
+          <figcaption><div><b>Eliska O’Reilly</b><span>The lady behind Bloeisel Koffie</span></div><img src="assets/sig.webp" alt="Eliska’s signature" width="105" height="59" decoding="async"></figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <section class="bleed" aria-labelledby="bleed-h">
-    <img src="assets/shop-dusk.webp" alt="The pink Bloeisel Koffie container café at dusk, with blossom trees on the deck" loading="lazy">
+    <img src="assets/shop-dusk.webp" alt="The pink Bloeisel Koffie container café at dusk, with blossom trees on the deck" srcset="assets/shop-dusk-900.webp 900w, assets/shop-dusk-1600.webp 1600w, assets/shop-dusk.webp 2560w" sizes="100vw" width="2560" height="1710" loading="lazy" decoding="async">
     <i class="tear tear-blush tear-top"></i>
     <div class="wrap">
       <h2 class="display" id="bleed-h">More Than Just Coffee. A Home From Home.</h2>
@@ -557,7 +560,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="brew">
         <ul class="facts facts-l"><li class="fact rv" data-rv="left" style="--i:0"><div><h3>Premium Coffee Beans</h3><p>A full-bodied coffee with a smooth finish and gentle sweetness.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="13" width="12" height="8" rx="1"/><path d="M8 13l1-5h6l1 5M12 8V5h5"/><circle cx="18.2" cy="5" r="1"/><path d="M10 17h4"/></svg></span></li><li class="fact rv" data-rv="left" style="--i:1"><div><h3>Roasted For Bloeisel</h3><p>Our coffee is specially roasted by Terbodore for Bloeisel Koffie, creating a coffee that is uniquely ours.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v17H7zM7 8.5h10M10 4v4.5"/><ellipse cx="12" cy="14.5" rx="2" ry="2.8" transform="rotate(25 12 14.5)"/></svg></span></li><li class="fact rv" data-rv="left" style="--i:2"><div><h3>Crafted For Every Cup</h3><p>From your first morning coffee to a relaxed afternoon at Bloeisel, this is the coffee we are proud to serve.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h14v5H5zM7.5 8.5V11h9V8.5M10.5 11v1.8M13.5 11v1.8M9 15h6v3a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2zM5 21.5h14"/></svg></span></li></ul>
         <div class="stage rv" data-rv="up" id="stage">
-          <img class="stage-bag" src="assets/bag-white.webp" alt="A 1kg bag of Bloeisel Koffie beans" width="717" height="1385" loading="lazy">
+          <img class="stage-bag" src="assets/bag-white.webp" alt="A 1kg bag of Bloeisel Koffie beans" srcset="assets/bag-white-420.webp 420w, assets/bag-white.webp 717w" sizes="(max-width:1024px) 62vw, 30vw" width="717" height="1385" loading="lazy" decoding="async">
           <span class="ground" aria-hidden="true"></span>
         </div>
         <ul class="facts facts-r"><li class="fact rv" data-rv="right" style="--i:0"><div><h3>Roasted By Terbodore</h3><p>We partnered with Terbodore, South Africa’s recognised specialty coffee roasters.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h8.5l-1.2 4 2.2 10H7.5l2.3-10zM9.4 8.2L3 5.2M9.8 10h6.5"/></svg></span></li><li class="fact rv" data-rv="right" style="--i:1"><div><h3>Our Signature Coffee</h3><p>The same Bloeisel coffee you enjoy in the café, now available to take home and enjoy whenever you like.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8.5h10L15.8 21H8.2zM6 8.5h12M8.2 5.5h7.6l.9 3H7.3zM10 2.5v1M14 2.5v1"/><circle cx="12" cy="14.5" r="2"/></svg></span></li><li class="fact rv" data-rv="right" style="--i:2"><div><h3>1kg Of Bloeisel Koffie</h3><p>Take the Bloeisel experience home with you with a generous 1kg bag of our signature coffee beans.</p></div><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h11v8a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4zM16.5 10H18a2.5 2.5 0 0 1 0 5h-1.5M9 3v2M13 3v2"/></svg></span></li></ul>
@@ -602,7 +605,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <a class="btn btn-dark" href="#visit"><span>Scan in store</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
       <figure class="loy-phone rv" data-rv="right">
-        <img src="assets/app-phone.webp" alt="The Bloeisel loyalty app on a phone, showing a card with 8 of 10 stickers collected" width="856" height="1536" loading="lazy">
+        <img src="assets/app-phone.webp" alt="The Bloeisel loyalty app on a phone, showing a card with 8 of 10 stickers collected" srcset="assets/app-phone-480.webp 480w, assets/app-phone.webp 856w" sizes="(max-width:1024px) 72vw, 460px" width="856" height="1536" loading="lazy" decoding="async">
       </figure>
     </div>
   </section>
@@ -636,14 +639,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <div><p class="eyebrow">Behind the scenes</p><h2 class="display" id="gal-h">Our Official Opening</h2><span class="script" aria-hidden="true">What a day.</span></div>
         <div class="fav-side"><p>A few favourite moments from the day Bloeisel opened its doors. Tap a photo to see it bigger.</p><div class="follow"><a class="btn btn-dark" href="https://www.instagram.com/bloeisel_koffie?obrf=em80OGR1dDh6ZzZh&amp;utm_source=qr" target="_blank" rel="noopener"><span>Follow on Instagram</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a><a class="btn btn-light" href="https://www.facebook.com/share/1A6562USXd/?mibextid=wwXIfr" target="_blank" rel="noopener"><span>Follow on Facebook</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div></div>
       </div>
-      <div class="grid"><button class="shot rv" data-rv="zoom" style="--i:0" data-full="assets/g4.webp" aria-label="Open photo: The pink container café with its blossom tree"><img src="assets/g4.webp" alt="The pink container café with its blossom tree" loading="lazy" width="720" height="720"><span class="cap"><b>Our pink container café</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:1" data-full="assets/g21.webp" aria-label="Open photo: The Bloeisel cup sign against the sky"><img src="assets/g21.webp" alt="The Bloeisel cup sign against the sky" loading="lazy" width="720" height="720"><span class="cap"><b>The Bloeisel sign</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:2" data-full="assets/g17.webp" aria-label="Open photo: Eliska holding a bag of Bloeisel beans and a takeaway cup"><img src="assets/g17.webp" alt="Eliska holding a bag of Bloeisel beans and a takeaway cup" loading="lazy" width="720" height="720"><span class="cap"><b>Eliska with our beans</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:3" data-full="assets/g16.webp" aria-label="Open photo: Two Bloeisel takeaway cups"><img src="assets/g16.webp" alt="Two Bloeisel takeaway cups" loading="lazy" width="720" height="720"><span class="cap"><b>Fresh from the counter</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:4" data-full="assets/g24.webp" aria-label="Open photo: Pink neon Bloeisel Koffie sign"><img src="assets/g24.webp" alt="Pink neon Bloeisel Koffie sign" loading="lazy" width="720" height="720"><span class="cap"><b>Neon nights</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:0" data-full="assets/g22.webp" aria-label="Open photo: Cherry blossom tree on the upper deck"><img src="assets/g22.webp" alt="Cherry blossom tree on the upper deck" loading="lazy" width="720" height="720"><span class="cap"><b>Blossoms on the deck</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:1" data-full="assets/g10.webp" aria-label="Open photo: A barista holding two cappuccinos"><img src="assets/g10.webp" alt="A barista holding two cappuccinos" loading="lazy" width="720" height="720"><span class="cap"><b>Made with a smile</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:2" data-full="assets/g13.webp" aria-label="Open photo: White tables and chairs on the deck"><img src="assets/g13.webp" alt="White tables and chairs on the deck" loading="lazy" width="720" height="720"><span class="cap"><b>A seat in the sun</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:3" data-full="assets/g33.webp" aria-label="Open photo: A Bloeisel cup held up at sunset"><img src="assets/g33.webp" alt="A Bloeisel cup held up at sunset" loading="lazy" width="720" height="720"><span class="cap"><b>Sunset sips</b><i aria-hidden="true">+</i></span></button></div>
+      <div class="grid"><button class="shot rv" data-rv="zoom" style="--i:0" data-full="assets/g4.webp" aria-label="Open photo: The pink container café with its blossom tree"><img src="assets/g4.webp" alt="The pink container café with its blossom tree" srcset="assets/g4-480.webp 480w, assets/g4.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 50vw, 34vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Our pink container café</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:1" data-full="assets/g21.webp" aria-label="Open photo: The Bloeisel cup sign against the sky"><img src="assets/g21.webp" alt="The Bloeisel cup sign against the sky" srcset="assets/g21-480.webp 480w, assets/g21.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>The Bloeisel sign</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:2" data-full="assets/g17.webp" aria-label="Open photo: Eliska holding a bag of Bloeisel beans and a takeaway cup"><img src="assets/g17.webp" alt="Eliska holding a bag of Bloeisel beans and a takeaway cup" srcset="assets/g17-480.webp 480w, assets/g17.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Eliska with our beans</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:3" data-full="assets/g16.webp" aria-label="Open photo: Two Bloeisel takeaway cups"><img src="assets/g16.webp" alt="Two Bloeisel takeaway cups" srcset="assets/g16-480.webp 480w, assets/g16.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Fresh from the counter</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:4" data-full="assets/g24.webp" aria-label="Open photo: Pink neon Bloeisel Koffie sign"><img src="assets/g24.webp" alt="Pink neon Bloeisel Koffie sign" srcset="assets/g24-480.webp 480w, assets/g24.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Neon nights</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:0" data-full="assets/g22.webp" aria-label="Open photo: Cherry blossom tree on the upper deck"><img src="assets/g22.webp" alt="Cherry blossom tree on the upper deck" srcset="assets/g22-480.webp 480w, assets/g22.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Blossoms on the deck</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:1" data-full="assets/g10.webp" aria-label="Open photo: A barista holding two cappuccinos"><img src="assets/g10.webp" alt="A barista holding two cappuccinos" srcset="assets/g10-480.webp 480w, assets/g10.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Made with a smile</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:2" data-full="assets/g13.webp" aria-label="Open photo: White tables and chairs on the deck"><img src="assets/g13.webp" alt="White tables and chairs on the deck" srcset="assets/g13-480.webp 480w, assets/g13.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>A seat in the sun</b><i aria-hidden="true">+</i></span></button><button class="shot rv" data-rv="zoom" style="--i:3" data-full="assets/g33.webp" aria-label="Open photo: A Bloeisel cup held up at sunset"><img src="assets/g33.webp" alt="A Bloeisel cup held up at sunset" srcset="assets/g33-480.webp 480w, assets/g33.webp 1000w" sizes="(max-width:720px) 50vw, (max-width:1024px) 25vw, 17vw" width="1000" height="1000" loading="lazy" decoding="async"><span class="cap"><b>Sunset sips</b><i aria-hidden="true">+</i></span></button></div>
     </div>
     <i class="tear tear-blush"></i>
   </section>
 
   <section class="section visit" id="visit" aria-labelledby="visit-h">
     <div class="wrap visit-grid">
-      <figure class="visit-photo rv" data-rv="left"><img src="assets/shop-day.webp" alt="Guests gathered at the Bloeisel Koffie counter" loading="lazy"></figure>
+      <figure class="visit-photo rv" data-rv="left"><img src="assets/shop-day.webp" alt="Guests gathered at the Bloeisel Koffie counter" srcset="assets/shop-day-800.webp 800w, assets/shop-day-1400.webp 1400w, assets/shop-day.webp 1920w" sizes="(max-width:1024px) 100vw, 52vw" width="1920" height="1085" loading="lazy" decoding="async"></figure>
       <div class="visit-card rv" data-rv="right">
         <p class="eyebrow">Visit us</p>
         <h2 class="display" id="visit-h">Pull In For A Cup</h2>
@@ -689,12 +692,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <ul><li><a href="#visit">Opening hours</a></li><li><a href="#visit">Contact</a></li><li><a href="https://www.google.com/maps/search/?api=1&query=Bloeisel+Koffie+Laerskool+Protearif+Krugersdorp" target="_blank" rel="noopener">Get directions</a></li></ul>
       </div>
     </div>
-    <img class="logo foot-mark" src="assets/logo-pink.webp" alt="Bloeisel" width="1333" height="564">
+    <img class="logo foot-mark" src="assets/logo-pink.webp" alt="Bloeisel" width="1333" height="564" decoding="async">
     <div class="foot-legal"><span>© 2026 Bloeisel Koffie. All rights reserved.</span><span>Krugersdorp, Suid-Afrika</span></div>
   </div>
 </footer>
 
-<dialog class="lightbox" id="lightbox" aria-label="Photo"><button id="lb-close" aria-label="Close photo">×</button><img id="lb-img" src="" alt=""></dialog>
+<dialog class="lightbox" id="lightbox" aria-label="Photo"><button id="lb-close" aria-label="Close photo">×</button><img id="lb-img" alt="" decoding="async"></dialog>
 
 <script>
 (function(){
@@ -760,7 +763,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   // low-power mode), swap in an animated image, which always plays and never shows a play button.
   $$('.card-media video').forEach(function(v){
     v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.controls=false;v.removeAttribute('controls');
-    var swapped=false,tries=0;
+    var swapped=false,tries=0,loaded=false;
+    var load=function(){if(loaded)return;loaded=true;v.autoplay=true;v.preload='auto';v.src=v.dataset.src;v.load()};
     var swap=function(){
       if(swapped||!v.dataset.loop)return;swapped=true;
       var im=new Image();im.alt=v.getAttribute('aria-label')||'';im.decoding='async';
@@ -769,7 +773,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     };
     var go=function(){
       if(swapped&&!v.parentNode)return;
-      if(!v.paused)return;
+      if(!loaded||!v.paused)return;
       var p=v.play();
       if(p&&p.catch)p.catch(function(err){tries++;if(err&&err.name==='NotAllowedError'||tries>3)swap()});
     };
@@ -779,9 +783,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});
     window.addEventListener('pageshow',go);window.addEventListener('focus',go);
     ['pointerdown','pointerup','touchstart','touchend','click','keydown'].forEach(function(ev){window.addEventListener(ev,go,{passive:true})});
-    if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)go()})},{threshold:.05}).observe(v);
-    go();
-    setTimeout(function(){if(v.paused&&v.parentNode)swap()},2500);
+    var started=false,start=function(){if(started)return;started=true;load();go();setTimeout(function(){if(v.paused&&v.parentNode)swap()},4000)};
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){start();go()}})},{rootMargin:'700px 0px',threshold:0}).observe(v);
+    }else start();
   });
 
   // Reviews slider (tablet and phone): dots follow the swipe, tap a dot to jump, gentle auto-advance
