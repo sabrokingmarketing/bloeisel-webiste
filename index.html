@@ -393,13 +393,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .burger{display:flex}
   .hero{display:block;min-height:0}
   .quote{flex-basis:86%}
-  .btn{display:flex;width:100%;min-height:54px;padding:7px 7px 7px 24px;justify-content:space-between}
-  .btn .arr{width:40px;height:40px}
-  .card .btn{display:inline-flex;width:auto;min-height:0;padding:6px 6px 6px 20px}
-  .card .btn .arr{width:36px;height:36px}
-  .hero .cta,.follow,.menu-foot{display:flex;flex-direction:column;align-items:stretch;gap:10px}
-  .menu-foot p{margin:0 0 4px}
-  .drawer .btn{align-self:stretch}
+  .btn{display:inline-flex;width:auto;max-width:100%;min-height:50px;padding:6px 6px 6px 22px;gap:14px;font-size:13px;justify-content:space-between}
+  .btn .arr{width:38px;height:38px}
+  .card .btn{min-height:0;padding:6px 6px 6px 18px;gap:10px;font-size:12.5px}
+  .card .btn .arr{width:34px;height:34px}
+  .hero .cta,.follow,.menu-foot{display:grid;grid-template-columns:max-content;justify-content:start;gap:10px}
+  .hero .cta .btn,.follow .btn,.menu-foot .btn{display:flex;width:100%}
+  .menu-foot p{width:0;min-width:100%;margin:0 0 4px}
+  .drawer .btn{align-self:flex-start}
   .stks{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
   .s-free b{font-size:10px}
   .hero::after{background:linear-gradient(0deg,rgba(168,19,73,.55) 0%,rgba(168,19,73,.3) 34%,rgba(168,19,73,0) 60%)}
