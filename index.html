@@ -146,9 +146,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .story h2{margin:14px 0 0}
 .story .script-sm{margin-bottom:18px}
 .story p+p{margin-top:14px}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:2px solid var(--petal);margin-top:34px;padding-top:26px}
-.stats b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(28px,3vw,40px);letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
-.stats span{display:block;font-size:13.5px;color:var(--berry-soft);margin-top:6px;line-height:1.35}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px}
+.stat{position:relative;overflow:hidden;border-radius:22px;padding:clamp(18px,2vw,26px);background:var(--white);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.stat:hover{transform:translateY(-4px)}
+.stat::after{content:"";position:absolute;right:-22px;top:-22px;width:84px;height:84px;border-radius:50%;background:var(--hot);opacity:.9}
+.stat b{position:relative;z-index:1;font-family:var(--display);font-weight:800;font-size:clamp(40px,4.4vw,60px);letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
+.stat span{position:relative;z-index:1;font-size:14.5px;line-height:1.35;color:var(--berry-soft);max-width:18ch}
+.stat-dark{background:var(--berry);color:var(--white)}
+.stat-dark span{color:rgba(255,255,255,.78)}
 .story .btn{margin-top:32px}
 .portrait{position:relative}
 .portrait img.ph{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:var(--r-card)}
@@ -409,7 +414,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .film{height:auto;aspect-ratio:4/5}
   .film .logo{width:92%;justify-self:center;margin-left:0;align-self:start;margin-top:16%}
   .film figure{right:50%;transform:translateX(50%) rotate(5deg);width:46%;bottom:-6%}
-  .stats{gap:12px}
+  .stats{gap:10px}
+  .stat{padding:16px;border-radius:20px}
+  .stat::after{width:64px;height:64px;right:-18px;top:-18px}
   .brew{grid-template-columns:1fr;row-gap:20px}
   .facts-l .fact:last-child{border-bottom:0}
   .rv-on .rv[data-rv="left"],.rv-on .rv[data-rv="right"]{transform:translateY(28px)}
@@ -516,9 +523,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <p class="lede">At Bloeisel, we believe every new day is an opportunity to bloom. Inspired by the beauty of cherry blossoms and the simple moments that make life special, Bloeisel was created as a place to slow down, connect and enjoy something beautiful.</p>
           <p class="lede">Eliska O’Reilly had a simple idea: a welcoming place where great coffee, good food and genuine connection come together. That idea became Bloeisel Koffie in Krugersdorp.</p>
           <div class="stats">
-            <div><b>06:30</b><span>First cup poured, Monday to Friday</span></div>
-            <div><b>10</b><span>Stickers on the app earn a free coffee</span></div>
-            <div><b>1kg</b><span>Bags of our signature beans to take home</span></div>
+            <div class="stat"><b>10</b><span>Stickers on the app earn a free coffee</span></div>
+            <div class="stat stat-dark"><b>1kg</b><span>Bags of our signature beans to take home</span></div>
           </div>
           <a class="btn btn-dark" href="#coffee"><span>Discover our coffee</span><i class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
         </div>
